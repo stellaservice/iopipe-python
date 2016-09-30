@@ -4,7 +4,7 @@ from pip.req import parse_requirements
 from pip.download import PipSession
 from setuptools import setup
 
-install_reqs = parse_requirements('./requirements.txt', session=PipSession())
+install_reqs = parse_requirements('requirements.txt', session=PipSession())
 reqs = [str(ir.req) for ir in install_reqs]
 
 setup(name='iopipe',
