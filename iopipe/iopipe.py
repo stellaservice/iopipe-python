@@ -233,6 +233,7 @@ class IOpipe(object):
         self.report['time_nanosec'] = \
             int((time.time() - self._time_start) * 1000000000)
 
+        self._add_python_local_data()
         self.report['environment']['agent'] = {
             'runtime': "python",
             'version': VERSION
@@ -240,7 +241,6 @@ class IOpipe(object):
 
         if context:
             self._add_aws_lambda_data(context)
-        self._add_python_local_data()
         self._add_os_host_data()
 
         try:
